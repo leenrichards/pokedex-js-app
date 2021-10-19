@@ -1,0 +1,33 @@
+/* CSS Document */
+
+/* Colors  */
+
+/* Text Color (Dark Gray): #2b2b2b; */
+
+/* Primary Color (Dark blue): #2b4c9b; */
+
+/* Secondary Color (Turquoise): #31AECB; */
+
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2b4c9b;
+    --secondary-color: #31aecb;
+    --dark-grey: #2b2b2b;
+    --body-font-size: 12pt;
+    --body-font-family: 'Mukta', sans-serif;
+}
+
+body,
+td {
+    font-family: var(--body-font-family);
+    font-weight: 400;
+    font-size: var(--body-font-size);
+    text-align: justify;
+    line-height: 2;
+    margin-bottom: 11rem;
+}
