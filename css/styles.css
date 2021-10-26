@@ -16,18 +16,84 @@
 
 :root {
     --primary-color: #2b4c9b;
-    --secondary-color: #31aecb;
+    --secondary-color: #fff;
     --dark-grey: #2b2b2b;
     --body-font-size: 12pt;
-    --body-font-family: 'Mukta', sans-serif;
+    --body-font-family: 'Roboto Mono',monospace,Helvetica,sans-serif;
 }
 
-body,
-td {
+body
+{
+    background-color: #36c;
+    color: var(--secondary-color);
     font-family: var(--body-font-family);
     font-weight: 400;
-    font-size: var(--body-font-size);
-    text-align: justify;
-    line-height: 2;
-    margin-bottom: 11rem;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.header-title{
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #ffcb05;
+}
+
+
+.pokemon-name{
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.pokemon-height{
+    font-size:0.9rem;    
+}
+
+
+@keyframes pokemon-rotate {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.pokemonLogo{
+    width: 50px;
+    vertical-align: middle;
+    animation: 8s pokemon-rotate infinite;
+}
+    
+@supports (display: grid) {
+    .pokemon-list {
+        display: flex;
+        background-color: lightgrey;
+        /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+        /* grid-template-columns: 1fr 1fr 1fr;*/
+        grid-gap: 5px;
+        margin: 0;
+    }
+
+    .pokemon-list__item {
+        text-align: center;
+        background-color: white;
+        color: black;
+        /* border-color: red; */
+        width: 100px;
+        margin: 0.5rem;
+        padding: 1.5rem;
+        flex-basis: 1rem; 
+        flex-shrink: 1;
+        flex-grow:1;
+        line-height: 1.5;
+    }
+
+   
 }
