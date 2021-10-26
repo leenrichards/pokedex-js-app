@@ -55,13 +55,18 @@ let pokemonList = [
 //set pokemon count number for new row addition in loop
 let pokemonCount = 1;
 document.write("<div class='pokemon-list'> ");
+
+//Loop through list of Pokemons 
 for (let i = 1; i < pokemonList.length; i++) {
+
+    //Create new row for every 5 Pokemons
     if (pokemonCount === 6) {
         document.write("</div>")
         document.write("<div class='pokemon-list'> ");
         pokemonCount = 1;
     }
 
+    //Temporaty- If POkmeon heigh is larger then 1.2 then highlight it
     if (pokemonList[i].height > 1.2) {
         document.write("<div class='pokemon-list__item' style='background-color:lightyellow;'>");
         document.write("<div class='pokemon-name'>" + pokemonList[i].name + "</div>");
