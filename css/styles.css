@@ -65,6 +65,7 @@ body
         transform: rotate(360deg);
     }
 }
+
 .pokemonLogo{
     width: 50px;
     vertical-align: middle;

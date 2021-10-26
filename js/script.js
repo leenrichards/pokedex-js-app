@@ -52,7 +52,7 @@ let pokemonList = [
     }
 ]
 
-//set pokemon count number for new row addition in loop
+//Set pokemon count number for new row addition in loop
 let pokemonCount = 1;
 document.write("<div class='pokemon-list'> ");
 
@@ -66,7 +66,7 @@ for (let i = 1; i < pokemonList.length; i++) {
         pokemonCount = 1;
     }
 
-    //Temporaty- If POkmeon heigh is larger then 1.2 then highlight it
+    //Temporaty- If Pokmeon height is larger then 1.2 then highlight it
     if (pokemonList[i].height > 1.2) {
         document.write("<div class='pokemon-list__item' style='background-color:lightyellow;'>");
         document.write("<div class='pokemon-name'>" + pokemonList[i].name + "</div>");
@@ -76,8 +76,7 @@ for (let i = 1; i < pokemonList.length; i++) {
         document.write("<div class='pokemon-name'>" + pokemonList[i].name + "</div>");
         document.write("<div class='pokemon-height' >Height:" + pokemonList[i].height + "</div >");
     }
-    //document.write("<div class='pokemon-height'>Height:" + pokemonList[i].height + "</div>");
-    
+
     document.write("</div>")
     pokemonCount = pokemonCount + 1;
 }
