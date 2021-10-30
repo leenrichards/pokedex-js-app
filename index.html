@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pokedex Javascript App</title>
-      <link href="./css/styles.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h2 class="header-title">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokedex Javascript App</title>
+  <link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h2 class="header-title">
     <!--- Start of SVG Graphic----->
     <!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-    <svg version="1.1" class="pokemonLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-      y="0px" viewbox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve">
+    <svg version="1.1" class="pokemonLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px" y="0px" viewbox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve">
       <style type="text/css">
-      
         .st0 {
           fill-rule: evenodd;
           clip-rule: evenodd;
           fill: #231F20;
         }
-    
+
         .st1 {
           fill-rule: evenodd;
           clip-rule: evenodd;
           fill: #F13E2D;
         }
-    
+
         .st2 {
           fill-rule: evenodd;
           clip-rule: evenodd;
           fill: #FEFEFE;
         }
-    
+
         .st3 {
           fill-rule: evenodd;
           clip-rule: evenodd;
           fill: #A09D9D;
         }
-    
+
         .st4 {
           fill-rule: evenodd;
           clip-rule: evenodd;
           fill: #58585A;
         }
-    
+
         .st5 {
           fill-rule: evenodd;
           clip-rule: evenodd;
@@ -95,10 +96,14 @@
         </g>
       </g>
     </svg>
-    Pokemon List
-    <!--- End of SVG Graphic----->
-</h2>
-      
+    Pokemon List <div class="searchBox">
+      <input type="text" id="pokemonName"><button onclick="pokemonToFind()" class="searchButton">Search
+      </button><button onclick="resetColors()" class="searchButton">Reset
+      </button>
+    </div>
+  </h2>
+
   <script src="js/script.js"></script>
-    </body>
+</body>
+
 </html>

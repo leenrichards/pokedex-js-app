@@ -12,6 +12,7 @@
 
 * {
     box-sizing: border-box;
+    margin: 2px;
 }
 
 :root {
@@ -32,12 +33,32 @@ body
     line-height: 1.6;
 }
 .header-title{
+    display:flex;
+    margin: revert;
     font-size: 30px;
     font-weight: 700;
     color: #fff;
     background-color: #ffcb05;
 }
 
+#pokemonName{
+    height:25px;
+}
+.searchBox{
+  vertical-align: middle;
+    flex: 0 1 200px;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.searchButton{
+    height: 25px;
+}
+form{
+    display: flex;
+  flex-direction: row;
+  align-items:center;
+}
 
 .pokemon-name{
     font-size:1.2rem;
