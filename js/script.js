@@ -60,22 +60,45 @@ let pokemonRepository = (function () {
 
     //function to add pokemon
     function add(pokemon) {
-        pokemonList.push(pokemon);
+        // Only add Pokemon if it's an object with 3 keys
+        if (typeof newPokemon == 'object' && Object.keys(newPokemon).length === 3) {
+            pokemonList.push(pokemon);
+        } else {
+            alert("Sorry, could not add " + pokemon.name + ".")
+        }
     }
+
+    //---------------------Find Pokemon----------------------------------------
+    function findPokemon() {
+
+        let pokemonName = findPokemon(document.getElementById("pokemonName").value);
+        alert(pokemonName);
+        //pokemonName = pokemonName.toLowerCase();
+        // alert(pokemonName);
+        let searchResult = pokemonList.filter(function () {
+            return pokemonList.name === pokemonName;
+        });
+
+        //If pokemon not found, alert user    
+        if (typeof searchResult[0] === 'undefined') {
+            alert('Sorry ' + document.getElementById("pokemonName").value + ' is not in this repository.');
+        }
+        //otherwise color the box of the found Pokemon
+        else {
+
+            let pokemonBox = document.querySelector('.' + pokemonName);
+            pokemonBox.style.backgroundColor = "lightyellow";
+        }
+    }
+    //---------------------End Find Pokemon----------------------------------
 
     return {
         getAll: getAll,
-        add: add
-    }
+        add: add,
+        findPokemon: findPokemon,
+    };
 })();
 //-------End of array of Pokemons-----------------------------------
-
-
-//Set pokemon count number for new row addition in loop
-let pokemonCount = 1;
-
-//Open main div
-document.write("<div class='pokemon-list'> ");
 
 //--------------------------- Bonus Task: Add a new Pokemon----------------------
 let newPokemon = {
@@ -83,48 +106,29 @@ let newPokemon = {
     height: 1.1,
     type: ['Bug', 'Flying']
 }
-// Only add Pokemon if it's an object with 3 keys
-if (typeof newPokemon == 'object' && Object.keys(newPokemon).length === 3) {
-    pokemonRepository.add(newPokemon)
-}
+pokemonRepository.add(newPokemon);
 //--------------------------- End Bonus Task to add ----------------------
 
 //-------------------- Get all pokemons from repository--------------------
 let getPokemon = pokemonRepository.getAll();
 //---------------------End of getting pokemons from repository
 
-//---------------------Find Pokemon----------------------------------------
-function findPokemon(pokemonName) {
-    let seachResult = getPokemon.filter(function (pokemon) {
-        return pokemon.name == pokemonName;
-    });
-
-    //If pokemon not found, alert user    
-    if (typeof seachResult[0] === 'undefined') {
-        alert('Sorry ' + document.getElementById("pokemonName").value + 'is not in this repository.');
-    }
-    //otherwise color the box of the found Pokemon
-    else {
-        let pokemonBox = document.querySelector('.' + pokemonName);
-        pokemonBox.style.backgroundColor = "lightyellow";
-    }
-}
-//---------------------End Find Pokemon----------------------------------
-
 //-------------Get search parameter from searchbox-------------------------
-function pokemonToFind() {
-    findPokemon(document.getElementById("pokemonName").value);
-}
+//function pokemonToFind() {
+//  findPokemon(document.getElementById("pokemonName").value);
+//}
 //-------------End of getting seach parameter -----------------------
 
 //---------------START TO SHOW LIST OF POKEMONS------------------------
+
+//Open main div
+document.write("<div class='pokemon-list'> ");
 // Loop through each pokemon in repository
-getPokemon.forEach(function (getPokemon) {
+getPokemon.forEach(function (getPokemon, index) {
     //Create new row for every 5 Pokemons
-    if (pokemonCount === 6) {
+    if (index % 5 === 0) {
         document.write("</div>")
         document.write("<div class='pokemon-list'> ");
-        pokemonCount = 1;
     }
     //Temporaty- If Pokmeon height is larger then 1.2 then highlight it
     if (getPokemon.height > 1.2) {
@@ -137,7 +141,6 @@ getPokemon.forEach(function (getPokemon) {
         document.write("<div class='pokemon-height' >Height:" + getPokemon.height + "</div >");
     }
     document.write("</div>")
-    pokemonCount = pokemonCount + 1;
 });
 document.write("</div>")
 //--------------END SHOWING LIST OF POKEMEONS------------------------
