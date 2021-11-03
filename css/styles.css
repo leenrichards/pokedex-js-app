@@ -32,6 +32,36 @@ body
     font-size: 16px;
     line-height: 1.6;
 }
+
+li {
+
+    list-style-type: none;
+    flex-basis: 1rem;
+    flex-shrink: 1;
+   
+}
+ul {
+   padding: 0px;
+   margin: 0px;
+   flex-wrap:wrap;
+   flex-shrink: 1;
+   width: auto;
+}
+
+.pokemonButton{
+    width: 200px;
+    background-color: var(--secondary-color);
+    font-family: var(--body-font-family);
+    font-weight: bold;  
+    padding: 30px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 17px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    border: 2px solid var(--primary-color);
+}
 .header-title{
     display:flex;
     margin: revert;
@@ -96,10 +126,6 @@ form{
 @supports (display: grid) {
     .pokemon-list {
         display: flex;
-        background-color: lightgrey;
-        /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
-        /* grid-template-columns: 1fr 1fr 1fr;*/
-        grid-gap: 5px;
         margin: 0;
     }
 

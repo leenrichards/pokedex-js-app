@@ -53,6 +53,27 @@ let pokemonRepository = (function () {
         }
     ];
 
+    //Write and alert pokemon name
+    function showDetails(pokemon) {
+        alert(pokemon);
+        console.log(pokemon);
+    }
+
+
+    //function to display list of pokemons in a flex list
+    function addListItem(pokemon) {
+        let pokemonNewList = document.querySelector(".pokemon-list");
+        let listItem = document.createElement("li");
+        let listButton = document.createElement("button");
+        listButton.innerText = pokemon;
+        listButton.classList.add('pokemonButton');
+        listButton.classList.add(pokemon);
+        listItem.appendChild(listButton);
+        pokemonNewList.appendChild(listItem);
+        listButton.addEventListener('click', function () {
+            showDetails(pokemon)
+        });
+    }
     //function to get all pokemons
     function getAll() {
         return pokemonList;
@@ -69,14 +90,14 @@ let pokemonRepository = (function () {
     }
 
     //---------------------Find Pokemon----------------------------------------
-    function findPokemon() {
+    function findPokemon(pokemon) {
 
-        let pokemonName = findPokemon(document.getElementById("pokemonName").value);
-        alert(pokemonName);
+        let pokemonName = document.getElementById("pokemonName").value;
+
         //pokemonName = pokemonName.toLowerCase();
-        // alert(pokemonName);
-        let searchResult = pokemonList.filter(function () {
-            return pokemonList.name === pokemonName;
+        let searchResult = pokemonList.filter(function (pokemon) {
+            return pokemon.name === pokemonName;
+
         });
 
         //If pokemon not found, alert user    
@@ -85,8 +106,7 @@ let pokemonRepository = (function () {
         }
         //otherwise color the box of the found Pokemon
         else {
-
-            let pokemonBox = document.querySelector('.' + pokemonName);
+            let pokemonBox = document.querySelector("." + pokemonName);
             pokemonBox.style.backgroundColor = "lightyellow";
         }
     }
@@ -96,6 +116,7 @@ let pokemonRepository = (function () {
         getAll: getAll,
         add: add,
         findPokemon: findPokemon,
+        addListItem: addListItem
     };
 })();
 //-------End of array of Pokemons-----------------------------------
@@ -113,36 +134,11 @@ pokemonRepository.add(newPokemon);
 let getPokemon = pokemonRepository.getAll();
 //---------------------End of getting pokemons from repository
 
-//-------------Get search parameter from searchbox-------------------------
-//function pokemonToFind() {
-//  findPokemon(document.getElementById("pokemonName").value);
-//}
-//-------------End of getting seach parameter -----------------------
 
 //---------------START TO SHOW LIST OF POKEMONS------------------------
-
-//Open main div
-document.write("<div class='pokemon-list'> ");
-// Loop through each pokemon in repository
 getPokemon.forEach(function (getPokemon, index) {
-    //Create new row for every 5 Pokemons
-    if (index % 5 === 0) {
-        document.write("</div>")
-        document.write("<div class='pokemon-list'> ");
-    }
-    //Temporaty- If Pokmeon height is larger then 1.2 then highlight it
-    if (getPokemon.height > 1.2) {
-        document.write("<div class='pokemon-list__item " + getPokemon.name + "'>");
-        document.write("<div class='pokemon-name'>" + getPokemon.name + "</div>");
-        document.write("<div class='pokemon-height' >Height:" + getPokemon.height + "- Wow that's tall!</div >");
-    } else {
-        document.write("<div class='pokemon-list__item " + getPokemon.name + "'>");
-        document.write("<div class='pokemon-name'>" + getPokemon.name + "</div>");
-        document.write("<div class='pokemon-height' >Height:" + getPokemon.height + "</div >");
-    }
-    document.write("</div>")
+    pokemonRepository.addListItem(getPokemon.name);
 });
-document.write("</div>")
 //--------------END SHOWING LIST OF POKEMEONS------------------------
 
 //--------------Reset all background colors to white ------------------
