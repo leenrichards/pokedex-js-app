@@ -16,7 +16,7 @@
 }
 
 :root {
-    --primary-color: #2b4c9b;
+    --primary-color: #36c;
     --secondary-color: #fff;
     --dark-grey: #2b2b2b;
     --body-font-size: 12pt;
@@ -25,7 +25,7 @@
 
 body
 {
-    background-color: #36c;
+    background-color: var(--primary-color);
     color: var(--secondary-color);
     font-family: var(--body-font-family);
     font-weight: 400;
@@ -48,46 +48,60 @@ ul {
    width: auto;
 }
 
-.pokemonButton{
-    width: 200px;
-    background-color: var(--secondary-color);
-    font-family: var(--body-font-family);
-    font-weight: bold;  
-    padding: 30px 30px;
-    text-align: center;
-    display: inline-block;
-    font-size: 17px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition-duration: 0.5s;
-    border: 2px solid var(--primary-color);
-}
 .header-title{
-    display:flex;
-    margin: revert;
-    font-size: 30px;
-    font-weight: 700;
+    font-weight: bold;
     color: #fff;
-    background-color: #ffcb05;
+}
+.list-group-item{
+    background-color:  var(--primary-color);
+    padding: 5px;
+    border-style: none;
+    margin: 0px;
+    width: 50%;
+    align-self: center;
+}
+
+.btn {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    font-weight: bold;
+}
+
+.btn-primary {
+    font-size: 1.5rem;
+
+    padding: 20px 32px;
+    width: 200px;
+    text-align: center; 
+    border-style: outset;
+    border-radius: 20%;
+    border-color: darkblue;
+    border-width: 1px;
 }
 
 #pokemonName{
-    height:25px;
+    font-size: 1rem;
+    height:30px;
+    vertical-align: middle;
 }
 .searchBox{
-  vertical-align: middle;
+    vertical-align: middle;
     flex: 0 1 200px;
     flex-grow: 1;
     text-align: right;
 }
 
 .searchButton{
-    height: 25px;
+    font-size: 1rem;
+    font-family: var(--body-font-family);
+    vertical-align: middle;
 }
+
 form{
     display: flex;
-  flex-direction: row;
-  align-items:center;
+    flex-direction: row;
+    align-items:center;
 }
 
 .pokemon-name{
@@ -125,9 +139,11 @@ form{
     
 @supports (display: grid) {
     .pokemon-list {
-        display: flex;
+        display: grid;
         margin: 0;
-    }
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 1rem 10rem;
+        }
 
     .pokemon-list__item {
         text-align: center;
@@ -142,10 +158,7 @@ form{
         flex-grow:1;
         line-height: 1.5;
     }
-
-   
 }
-
 
 #modal-container {
   position: fixed;
@@ -171,7 +184,6 @@ form{
 #modal-container {
   /*display: block;*/ 
   display: none;
-  
 }
 
 #modal-container.is-visible {
@@ -202,11 +214,12 @@ form{
 }
 
 .type-element{
-    padding: 20px;
+    padding: 10px;
     border-style: solid;
     font-weight: bold;
     border-width: 1px;
     border-color: #777;
+    vertical-align: text-bottom;
 }
 
 .type-elementTitle{
@@ -220,41 +233,57 @@ font-weight: bold;
 font-size: 2rem;
 color: black;
 }
-.pokemon-picture{
-       vertical-align: middle;
 
+.divType{
+   text-align-last: center;
+}
+.modal-image{
+    margin-left: 12%;
+    margin-top: 0px;
 }
 .modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #fff;
-     padding-bottom: 3rem;
-     
-    padding-left: 1rem;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #a09d9d;
-  max-width: 700px;
-  text-align: left;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  padding:0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
-}
-
-.modal h1 {
-  margin-top: 0;
   color: black;
+  line-height: 0.5rem;
 }
 
-.modal p {
-    color: black;
-    line-height: 4rem;
+/* Navbar styles*/
+ 
+.st0 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #231F20;
+}
+
+.st1 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #F13E2D;
+}
+
+.st2 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #FEFEFE;
+}
+
+.st3 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #A09D9D;
+}
+
+.st4 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #58585A;
+}
+
+.st5 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #363638;
+}
+
+.navbar{
+    background-color:#ffcb05;
 }
