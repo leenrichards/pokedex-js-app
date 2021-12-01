@@ -3,10 +3,6 @@
 The objective of this small web application is to use HTML, CSS, and JavaScript to load
 data from an external API and enable the viewing of a list of Pokémons, along with their characteristics.
 
-# Languages Used
-
-This app was written using HTML, CSS, Javascript, JQuery and Bootstrap. It interfaces withj an external Pokemon API using AJAX.
-
 # Design Considerations
 
 The pokemon images are displayed upon loading the list of Pokekmon, in order to make the app more appealing to the end-user:
@@ -17,7 +13,9 @@ When viewing the pokemon details, coded-boxes depict the pokemon type. This make
 
 ![image](https://user-images.githubusercontent.com/89264218/144287428-ac078efe-ecfd-4ef2-8ee3-a270fdbbe966.png)
 
+# Languages Used
 
+This app was written using HTML, CSS, Javascript, JQuery and Bootstrap. It interfaces withj an external Pokemon API using AJAX.
 
 # My Role
 
